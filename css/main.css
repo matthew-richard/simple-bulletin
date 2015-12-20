@@ -1,0 +1,44 @@
+h1,h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+strong {
+  font-size: 1.2em;
+}
+
+#title {
+  background-color: #FF0000;
+}
+
+#container {
+  margin: auto;
+  width: 1000px;
+}
+
+#left {
+  background-color: aqua;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#right {
+  background-color: green;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#right h2,li {
+  color: #DDDDDD;
+}
+
+#list li {
+  margin-bottom: 15px;
+}

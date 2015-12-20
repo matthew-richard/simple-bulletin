@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Start session
+tmux -2 new-session -d -s "server"
+
+# Set up layout
+tmux rename-window -t server:0 edit
+tmux split-window -h
+tmux select-pane -t 0
+tmux split-window -v
+tmux select-pane -t 1
+tmux split-window -h
+tmux resize-pane -t 1 -D 10
+
+tmux new-window -n misc
+tmux split-window -h
+tmux select-pane -t left
+tmux split-window -v
+tmux select-pane -t right
+tmux split-window -v
+tmux select-pane -t 0
+
+# Initialize panes
+sleep 0.5
+tmux send-keys -t server:edit.0   "vim -p layouts/*.hbs partials/*.hbs js/*.js css/*.css content/*.md" C-m
+tmux send-keys -t server:edit.1   "grunt watch" C-m
+tmux send-keys -t server:edit.3   "vim -p server.js" C-m
+tmux send-keys -t server:edit.2   "node server.js" C-m
+tmux send-keys -t server:misc.0   "ls" C-m
+tmux send-keys -t server:misc.2   "mysql -u root -ppassword bulletin" C-m
+tmux send-keys -t server:misc.3   "node" C-m
+
+tmux select-window -t server:edit
+tmux attach -t server
