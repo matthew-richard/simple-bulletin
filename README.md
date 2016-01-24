@@ -1,4 +1,4 @@
-Bulletin
+Simple Bulletin
 ========
 
 A simple web page in which any user can post messages for the world to see.
